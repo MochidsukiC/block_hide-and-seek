@@ -1,0 +1,5 @@
+name: block_hide-and-seek
+version: '${project.version}'
+main: net.colsika.mochidsuki.block_hideandseek.Block_hide_and_seek
+api-version: '1.19'
+
