@@ -1,6 +1,7 @@
 package net.colsika.mochidsuki.block_hideandseek;
 
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,6 +16,10 @@ public final class Block_hide_and_seek extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         plugin = this;
+        //config
+        saveDefaultConfig();
+        FileConfiguration config = getConfig();
+
     }
 
     @Override

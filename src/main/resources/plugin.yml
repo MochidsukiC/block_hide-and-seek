@@ -3,3 +3,10 @@ version: '${project.version}'
 main: net.colsika.mochidsuki.block_hideandseek.Block_hide_and_seek
 api-version: '1.19'
 
+commands:
+  bhs:
+    aliases: [ blockhideandseek ]
+    description: Block_Hide And Seek main command
+    permission: block_hide-and-seek.command.bhs
+    permission-message: 権限ないならお黙り
+    usage: 準備中

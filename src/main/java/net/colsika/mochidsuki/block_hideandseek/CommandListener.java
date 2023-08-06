@@ -8,7 +8,9 @@ import org.jetbrains.annotations.NotNull;
 public class CommandListener implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        if(command.getName().equalsIgnoreCase("bhs"))
+        if(command.getName().equalsIgnoreCase("bhs")){
+
+        }
 
         return false;
     }
