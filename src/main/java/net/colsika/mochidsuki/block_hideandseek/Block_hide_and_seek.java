@@ -1,11 +1,18 @@
 package net.colsika.mochidsuki.block_hideandseek;
 
+import org.bukkit.EntityEffect;
 import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.FallingBlock;
+import org.bukkit.entity.Warden;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public final class Block_hide_and_seek extends JavaPlugin {
@@ -19,6 +26,13 @@ public final class Block_hide_and_seek extends JavaPlugin {
         //config
         saveDefaultConfig();
         FileConfiguration config = getConfig();
+        Config config1 = new Config(this);
+        config1.load();
+
+        //command
+        getCommand("bhs").setExecutor(new CommandListener());
+
+        BlockList.matching = false;
 
     }
 
@@ -30,4 +44,7 @@ public final class Block_hide_and_seek extends JavaPlugin {
 
 class BlockList{
     static HashSet<Material> blocks = new HashSet<>();
+    static HashMap<Material, FallingBlock> blockEntity = new HashMap<>();
+    static boolean matching;
+    static World matchWorld;
 }

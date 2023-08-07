@@ -32,8 +32,7 @@ public class Config {
 
         // TODO:ここに設定をロードする処理
         for(String key : Objects.requireNonNull(config.getConfigurationSection("Blocks")).getKeys(false)){
-            BlockList.blocks.add(Material.valueOf(config.getString("Blocks" + key)));
-
+            BlockList.blocks.add(Material.valueOf(config.getString("Blocks." + key)));
         }
     }
 }
