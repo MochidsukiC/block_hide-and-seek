@@ -1,0 +1,6 @@
+net\colsika\mochidsuki\block_hideandseek\BlockList.class
+net\colsika\mochidsuki\block_hideandseek\Config.class
+net\colsika\mochidsuki\block_hideandseek\BlockTelepoter.class
+net\colsika\mochidsuki\block_hideandseek\Block_hide_and_seek.class
+net\colsika\mochidsuki\block_hideandseek\CommandListener.class
+net\colsika\mochidsuki\block_hideandseek\Listener.class
