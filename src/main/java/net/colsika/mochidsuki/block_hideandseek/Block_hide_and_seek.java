@@ -44,7 +44,7 @@ public final class Block_hide_and_seek extends JavaPlugin {
 
 class BlockList{
     static HashSet<Material> blocks = new HashSet<>();
-    static HashMap<Material, FallingBlock> blockEntity = new HashMap<>();
+    static HashMap<Material, Entity> blockEntity = new HashMap<>();
     static boolean matching;
     static World matchWorld;
 }

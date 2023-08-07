@@ -17,13 +17,12 @@ public class BlockTelepoter extends BukkitRunnable {
                 if (BlockList.blocks.contains(player.getInventory().getItemInMainHand().getType())) {
                     Material item = player.getInventory().getItemInMainHand().getType();
                     BlockList.blockEntity.get(item).teleport(player);
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 1, 0, true, true));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 2, 0, true, true));
                 }
             }
         }else {
             for(Material material : BlockList.blocks){
-                FallingBlock entity = BlockList.blockEntity.get(material);
-                entity.teleport(new Location(BlockList.matchWorld,0,-20,0));
+                BlockList.blockEntity.get(material).teleport(new Location(BlockList.matchWorld,0,-20,0));;
             }
             cancel();
         }

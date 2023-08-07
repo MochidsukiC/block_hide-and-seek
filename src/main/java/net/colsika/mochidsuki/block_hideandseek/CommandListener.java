@@ -7,10 +7,7 @@ import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.FallingBlock;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.jetbrains.annotations.NotNull;
 
 public class CommandListener implements CommandExecutor {
@@ -34,10 +31,16 @@ public class CommandListener implements CommandExecutor {
 
                     FallingBlock entity = world.spawnFallingBlock(new Location(world,0,-20,0), material.createBlockData());
                     entity.setGravity(false);
-                    BlockList.blockEntity.put(material,entity);
+                    ArmorStand armorStand = (ArmorStand) world.spawnEntity(new Location(world,0,-20,0),EntityType.ARMOR_STAND);
+                    armorStand.addPassenger(entity);
+                    armorStand.setInvisible(true);
+                    armorStand.setGravity(true);
+                    BlockList.blockEntity.put(material,armorStand);
                     BlockList.matching = true;
                     new BlockTelepoter().runTaskTimer(Block_hide_and_seek.plugin,0,1);
                 }
+            } else if (args[0].equalsIgnoreCase("stop")) {
+                BlockList.matching=false;
             }
         }
         BlockList.matchWorld = world;
