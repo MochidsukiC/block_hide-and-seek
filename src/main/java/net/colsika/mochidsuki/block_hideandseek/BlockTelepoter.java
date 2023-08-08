@@ -1,5 +1,6 @@
 package net.colsika.mochidsuki.block_hideandseek;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -16,7 +17,8 @@ public class BlockTelepoter extends BukkitRunnable {
             for (Player player : Block_hide_and_seek.plugin.getServer().getOnlinePlayers()) {
                 if (BlockList.blocks.contains(player.getInventory().getItemInMainHand().getType())) {
                     Material item = player.getInventory().getItemInMainHand().getType();
-                    BlockList.blockEntity.get(item).teleport(player);
+                    String command = String.format("tp %s %s %s %s", BlockList.blockEntity.get(item).getUniqueId(), player.getLocation().getX(), player.getLocation().getY() - 1.482, player.getLocation().getZ());
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
                     player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 2, 0, true, true));
                 }
             }

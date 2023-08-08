@@ -29,12 +29,12 @@ public class CommandListener implements CommandExecutor {
             if(args[0].equalsIgnoreCase("start")){
                 for(Material material : BlockList.blocks){
 
-                    FallingBlock entity = world.spawnFallingBlock(new Location(world,0,-20,0), material.createBlockData());
+                    FallingBlock entity = world.spawnFallingBlock(new Location(world,0,-80,0), material.createBlockData());
                     entity.setGravity(false);
-                    ArmorStand armorStand = (ArmorStand) world.spawnEntity(new Location(world,0,-20,0),EntityType.ARMOR_STAND);
+                    ArmorStand armorStand = (ArmorStand) world.spawnEntity(new Location(world,0,-80,0),EntityType.ARMOR_STAND);
                     armorStand.addPassenger(entity);
                     armorStand.setInvisible(true);
-                    armorStand.setGravity(true);
+                    armorStand.setGravity(false);
                     BlockList.blockEntity.put(material,armorStand);
                     BlockList.matching = true;
                     new BlockTelepoter().runTaskTimer(Block_hide_and_seek.plugin,0,1);
